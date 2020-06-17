@@ -81,11 +81,17 @@ const renderPlankerList = () => {
   plankerList.innerHTML = newPlankerList
 }
 
+const renderPlankerNum = () => {
+  const plankerNum = document.getElementById('plank-walkers')
+  plankerNum.innerHTML = store.getState().plankers.length
+}
+
 const store = createStore(crewReducer);
 
 const render = () => {
   renderCrewList();
   renderPlankerList();
+  renderPlankerNum();
 }
 
 render();
