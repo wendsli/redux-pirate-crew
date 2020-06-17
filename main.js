@@ -60,7 +60,15 @@ newPirateForm.addEventListener('submit', () => {
 })
 
 plankButton.addEventListener('click', () => {
-  store.dispatch(plankPirate())
+  if (store.getState().crew.length === 0) {
+    alert(
+      "Ahoy, matey! Ye cannay make a pirate walk the plank, if'n ye've got " +
+      "narry a peg-leg or hook-fist aboard! Add more sea-rogues to " +
+      "yer nefarious crew, and then ye can consign em all to the briny deep!"
+    )
+  } else {
+    store.dispatch(plankPirate())
+  }
 })
 
 const renderCrewList = () => {
